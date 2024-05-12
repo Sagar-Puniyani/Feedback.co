@@ -16,7 +16,7 @@ export async function POST(request : Request){
             return Response.json(
                 {
                     success : false,
-                    message : "User alreadt exists"
+                    message : "User already exists"
                 },{ status : 409}
             )
         }
@@ -29,7 +29,7 @@ export async function POST(request : Request){
                 return Response.json(
                     {
                         success : false,
-                        message : "User is already exists"
+                        message : "User is already exists with this email"
                     } , {
                         status : 405
                     }
@@ -79,8 +79,7 @@ export async function POST(request : Request){
             } , {status : 500 })
         }
 
-        return Response.json(
-            {
+        return Response.json({
                 success : true,
                 message : "User Registered Verify Your Account"
             },{status : 201 }
