@@ -2,6 +2,7 @@ import dbConnect from "@/lib";
 import UserModel from "@/models/user.model";
 import bcrypt from "bcryptjs"
 import { SendsVerficationEmail } from "@/helpers/sendRendEail";
+import { ApiResponseMessage } from "@/helpers/ApiResponse";
 
 export async function POST(request : Request){
     await dbConnect();
@@ -11,6 +12,9 @@ export async function POST(request : Request){
             username : username,
             isVerified : true 
         });
+
+        console.log("Email is : " , email);
+        
         
         if ( UserInstanceVerifiedByUsername){
             return Response.json(
@@ -79,12 +83,10 @@ export async function POST(request : Request){
             } , {status : 500 })
         }
 
-        return Response.json({
-                success : true,
-                message : "User Registered Verify Your Account"
-            },{status : 201 }
-        )
-
+        return Response.json(
+            new ApiResponseMessage( true, 
+                "User Registered Verify Your Account")
+                ,{status : 201 })
 
     } catch (error) {
         console.error("Error in Registering User : " , error);
@@ -94,7 +96,7 @@ export async function POST(request : Request){
                 message: 'Error registering user',
             },
             {
-                status : 500
+                status : 508
             }
         )
     }

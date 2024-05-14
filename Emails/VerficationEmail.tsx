@@ -50,14 +50,20 @@ import {
                 If you did not request this code, please ignore this email.
                 </Text>
             </Row>
-            {/* <Row>
-                <Button
-                href={`http://localhost:3000/verify/${username}`}
-                style={{ color: '#61dafb' }}
+            <Row>
+            <Button
+                    href={`http://localhost:3000/verify/${username}`} // Link with dynamic username variable
+                    style={{ // Inline CSS styles
+                        borderRadius: '0.375rem', // Border radius
+                        padding: '5px 5px', // Padding
+                        margin : '1px 2px', // Margin
+                        background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%)' 
+                    }}
                 >
                 Verify here
-                </Button>
-            </Row> */}
+            </Button>
+
+            </Row>
             </Section>
         </Html>
         );
