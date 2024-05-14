@@ -30,7 +30,7 @@ export async function POST(request : Response){
             await UserInstance?.save();
 
             return new ApiResponseMessage(true ,"verification code" ),
-        { status : 405}
+        { status : 204}
         }
         
         else if (!isNotExpired){
