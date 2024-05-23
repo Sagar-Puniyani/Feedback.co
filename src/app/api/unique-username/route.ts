@@ -46,14 +46,14 @@ export async function GET(request : Request){
         
         return Response.json(
             new ApiResponseMessage(true ,"Username is Avaliable" ),
-            { status : 205}
+            { status : 200}
         )
 
 
     } catch (error) {
         console.error("Error checking User name " , error);
         return Response.json(
-            new ApiResponseMessage(false , "Error Checking User Name" ),
+            new ApiResponseMessage(false , "Error While UserName Checking" ),
             { status : 506}
         )
     }
